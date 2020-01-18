@@ -10,7 +10,11 @@ import javax.persistence.*;
 public class Side_Series {
     @Id
     @GeneratedValue
-    @Column(name = "Title_of_a_series")
+    @Column(name = "ID")
+    private int ID;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Title_of_a_series")
     private String Title_of_a_series;
 
     @Column(name = "Real_world_or_not")

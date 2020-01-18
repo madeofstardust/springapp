@@ -12,7 +12,11 @@ public class Main_series {
 
     @Id
     @GeneratedValue
-    @Column(name = "Title_of_a_series")
+    @Column(name = "ID")
+    private int ID;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Title_of_a_series")
     private String Title_of_a_series;
 
     @Column(name = "Magical_or_not")

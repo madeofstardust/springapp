@@ -11,7 +11,11 @@ public class Side_heroes {
 
     @Id
     @GeneratedValue
-    @Column(name = "Name")
+    @Column(name = "ID")
+    private int ID;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Name_of_sc")
     private String Name_of_sc;
 
     @Column(name = "Sex")

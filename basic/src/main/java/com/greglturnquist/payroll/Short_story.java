@@ -1,5 +1,8 @@
 package com.greglturnquist.payroll;
+import org.springframework.data.annotation.Reference;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Short_story", uniqueConstraints = {
@@ -11,6 +14,8 @@ import javax.persistence.*;
 public class Short_story {
     @Id
     @GeneratedValue
+    @Column(name = "ID")
+    private int ID;
     @Column(name = "Title")
     private String Title_of_a_short_story;
 
@@ -18,7 +23,8 @@ public class Short_story {
     private int Year;
 
     @Column(name = "Main_hero")
-    private String Main_hero;
+    @Reference()
+    private List<Main_heroes> Name;
 
     public String getTitle_of_a_short_story() {
         return Title_of_a_short_story;
@@ -36,11 +42,11 @@ public class Short_story {
         Year = year;
     }
 
-    public String getMain_hero() {
-        return Main_hero;
+    public List<Main_heroes> getName() {
+        return Name;
     }
 
-    public void setMain_hero(String main_hero) {
-        Main_hero = main_hero;
+    public void setName(List<Main_heroes> name) {
+        Name = name;
     }
 }

@@ -12,16 +12,15 @@ import java.util.Objects;
 public class All_stories {
     @Id
     @GeneratedValue
+    @Column(name = "ID")
+    private int ID;
 
-    @Column(name = "Title_of_a_story")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Title_of_a_story")
     private String Title_of_a_story;
 
     public All_stories(String Title_of_a_story){
         this.Title_of_a_story = Title_of_a_story;
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hash(Title_of_a_story);
     }
 
     public String getTitle_of_a_story() {
@@ -32,10 +31,4 @@ public class All_stories {
         Title_of_a_story = title_of_a_story;
     }
 
-    @Override
-    public String toString() {
-        return "All_stories{" +
-                "Title='" + Title_of_a_story + '\'' +
-                '}';
-    }
 }

@@ -15,11 +15,13 @@ import java.util.Objects;
 public class Main_heroes {
     @Id
     @GeneratedValue
+    @Column(name = "ID")
+    private int ID;
 
     //@ManyToOne(fetch = FetchType.LAZY)
     //@JoinColumn(name = "Main_hero")
     //private Novel novel;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "Name")
     private String Name;
 

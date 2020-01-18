@@ -11,7 +11,11 @@ public class Places {
 
     @Id
     @GeneratedValue
-    @Column(name = "Name")
+    @Column(name = "ID")
+    private int ID;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Name")
     private String Name;
 
     @Column(name = "Climate")

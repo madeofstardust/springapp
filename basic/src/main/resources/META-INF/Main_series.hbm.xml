@@ -13,7 +13,8 @@
             <generator class="native"/>
         </id>
 
-        <property name = "Title_of_a_series" column = "Title_of_a_series" type = "string"/>
+        <many-to-one name="Title_of_a_series" cascade="all"></many-to-one>
+       <!-- <property name = "Title_of_a_series" column = "Title_of_a_series" type = "string"/> -->
         <property name = "Magical_or_not" column = "Magical_or_not" type = "string"/>
         <property name = "For_children_or_not" column = "For_children_or_not" type = "string"/>
 
