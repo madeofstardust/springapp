@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "All_stories" table = "All_stories">
+
+        <meta attribute = "class-description">
+            This class contains data about every story recorded.
+        </meta>
+
+        <id name = "ID" type = "int" column = "ID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "Title_of_a_story" column = "Title_of_a_story" type = "string"/>
+
+    </class>
+</hibernate-mapping>

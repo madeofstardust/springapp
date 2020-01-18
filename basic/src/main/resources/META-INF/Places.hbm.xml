@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "Places" table = "Places">
+
+        <meta attribute = "class-description">
+            This class contains data about Places.
+        </meta>
+
+        <id name = "ID" type = "int" column = "ID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "Name" column = "Name" type = "string"/>
+        <property name = "Climate" column = "Climate" type = "string"/>
+        <property name = "Population" column = "Population" type = "int"/>
+        <property name = "Political_system" column = "Political_system" type = "string"/>
+
+    </class>
+</hibernate-mapping>

@@ -12,9 +12,6 @@ public class Main_series {
 
     @Id
     @GeneratedValue
-    @Column(name = "ID")
-    private int ID;
-
     @Column(name = "Title_of_a_series")
     private String Title_of_a_series;
 

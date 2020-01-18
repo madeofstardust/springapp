@@ -1,5 +1,7 @@
 package com.greglturnquist.payroll;
 
+import org.springframework.data.annotation.Reference;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -13,10 +15,12 @@ import java.util.Objects;
 public class Main_heroes {
     @Id
     @GeneratedValue
-    @Column(name = "ID")
-    private int ID;
 
-    @Column(name = "Name")
+    //@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "Main_hero")
+    //private Novel novel;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Name")
     private String Name;
 
     @Column(name = "Sex")
@@ -29,22 +33,13 @@ public class Main_heroes {
     private String Quote;
 
 
+    //public String getName() {
+    //    return Name;
+    //}
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String Name) {
-        this.Name = Name;
-    }
+    //public void setName(String Name) {
+    //    this.Name = Name;
+    //}
 
     public String getSex() {
         return Sex;

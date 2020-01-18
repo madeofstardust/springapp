@@ -11,9 +11,6 @@ public class Side_heroes {
 
     @Id
     @GeneratedValue
-    @Column(name = "ID")
-    private int ID;
-
     @Column(name = "Name")
     private String Name_of_sc;
 
@@ -23,13 +20,6 @@ public class Side_heroes {
     @Column(name = "Race")
     private String Race;
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     public String getName() {
         return Name_of_sc;

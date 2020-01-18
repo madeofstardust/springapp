@@ -1,7 +1,10 @@
 package com.greglturnquist.payroll;
 import com.fasterxml.jackson.annotation.JsonFormat;
+//import javafx.geometry.Side;
+import org.springframework.data.annotation.Reference;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Novel", uniqueConstraints = {
@@ -23,11 +26,16 @@ public class Novel {
     @Column(name = "Main_series")
     Main_series Title_of_a_main_series;
 
-    @Column(name = "Side_series")
-    Side_Series Side_series;
+    //@Column(name = "Side_series")
+    //Side_Series Side_series;
+    @Reference()
+    private List<Side_Series> Title_of_a_series ;
 
-    @Column(name = "Main_hero")
-    Main_heroes Main_hero;
+    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "novel")
+    //private List<Main_heroes> Main_hero;
+
+    @Reference()
+    private List<Main_heroes> Name;
 
     @Column(name = "Side_hero")
     Side_heroes Side_hero;
@@ -66,22 +74,22 @@ public class Novel {
         }
 
     //side series:
-    public void setSide_series (Side_Series side_series){
-            this.Side_series = side_series;
-        }
+    //public void setSide_series (Side_Series side_series){
+    //        this.Side_series = side_series;
+    //    }
 
-    public Side_Series getSide_series () {
-        return Side_series;
-    }
+    //public Side_Series getSide_series () {
+    //    return Side_series;
+    //}
 
     //Main heroes:
-    public Main_heroes getMain_hero () {
-            return Main_hero;
-        }
+    //public Main_heroes getMain_hero () {
+    //        return Main_hero;
+    //    }
 
-    public void setMain_hero(Main_heroes Name){
-            this.Main_hero = Name;
-        }
+    //public void setMain_hero(Main_heroes Main_hero){
+    //        this.Main_hero = Main_hero;
+    //    }
 
 //Side hero:
 

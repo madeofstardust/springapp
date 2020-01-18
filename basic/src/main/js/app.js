@@ -11,38 +11,38 @@ class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {employees: []};
+		this.state = {all_stories: []};
 	}
 
 	componentDidMount() {
-		client({method: 'GET', path: '/api/employees'}).done(response => {
-			this.setState({employees: response.entity._embedded.employees});
+		client({method: 'GET', path: '/api/all_stories'}).done(response => {
+			this.setState({all_stories: response.entity._embedded.all_stories});
 		});
 	}
 
 	render() {
 		return (
-			<EmployeeList employees={this.state.employees}/>
+			<All_StoriesList all_stories={this.state.all_stories}/>
 		)
 	}
 }
 // end::app[]
 
 // tag::employee-list[]
-class EmployeeList extends React.Component{
+class All_StoriesList extends React.Component{
 	render() {
-		const employees = this.props.employees.map(employee =>
-			<Employee key={employee._links.self.href} employee={employee}/>
+		const all_stories = this.props.all_stories.map(all_stories1 =>
+			<All_Stories key={all_stories1._links.self.href} all_stories1={all_stories1}/>
 		);
 		return (
 			<table>
 				<tbody>
 					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Description</th>
+						<th>Title:</th>
+						<th>ID:</th>
+						//<th>Description</th>
 					</tr>
-					{employees}
+					{all_stories}
 				</tbody>
 			</table>
 		)
@@ -51,13 +51,13 @@ class EmployeeList extends React.Component{
 // end::employee-list[]
 
 // tag::employee[]
-class Employee extends React.Component{
+class All_Stories extends React.Component{
 	render() {
 		return (
 			<tr>
-				<td>{this.props.employee.firstName}</td>
-				<td>{this.props.employee.lastName}</td>
-				<td>{this.props.employee.description}</td>
+				<td>{this.props.all_stories1.Title_of_a_story}</td>
+				<td>{this.props.all_stories1.ID}</td>
+				//<td>{this.props.employee.description}</td>
 			</tr>
 		)
 	}

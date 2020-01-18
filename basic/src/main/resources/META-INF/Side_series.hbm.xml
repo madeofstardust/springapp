@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "Side_series" table = "Side_series">
+
+        <meta attribute = "class-description">
+            This class contains data about Side series.
+        </meta>
+
+        <id name = "ID" type = "int" column = "ID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "Title_of_a_series" column = "Title_of_a_series" type = "string"/>
+        <property name = "Real_world_or_not" column = "Real_world_or_not" type = "string"/>
+
+    </class>
+</hibernate-mapping>

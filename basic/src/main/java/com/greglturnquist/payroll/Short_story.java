@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Short_story", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"Title", "Year", "Main_hero"}
+        @UniqueConstraint(columnNames = {"ID","Title", "Year", "Main_hero"}
         )
 }
 )

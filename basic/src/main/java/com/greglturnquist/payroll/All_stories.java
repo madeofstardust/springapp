@@ -12,8 +12,6 @@ import java.util.Objects;
 public class All_stories {
     @Id
     @GeneratedValue
-    @Column(name = "ID")
-    private int ID;
 
     @Column(name = "Title_of_a_story")
     private String Title_of_a_story;
@@ -24,15 +22,6 @@ public class All_stories {
     @Override
     public int hashCode() {
         return Objects.hash(Title_of_a_story);
-    }
-
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getTitle_of_a_story() {
@@ -46,8 +35,7 @@ public class All_stories {
     @Override
     public String toString() {
         return "All_stories{" +
-                "id=" + ID +
-                ", Title='" + Title_of_a_story + '\'' +
+                "Title='" + Title_of_a_story + '\'' +
                 '}';
     }
 }

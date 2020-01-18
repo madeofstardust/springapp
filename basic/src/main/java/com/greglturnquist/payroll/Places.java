@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Places", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"Name", "Climate", "Population", "Political_system"}
+        @UniqueConstraint(columnNames = {"ID", "Name", "Climate", "Population", "Political_system"}
         )
 }
 )
@@ -28,7 +28,7 @@ public class Places {
     }
 
     public void setName(String name) {
-        Name = name;
+        this.Name = name;
     }
 
     public String getClimate() {
@@ -36,7 +36,7 @@ public class Places {
     }
 
     public void setClimate(String climate) {
-        Climate = climate;
+        this.Climate = climate;
     }
 
     public int getPopulation() {
@@ -44,7 +44,7 @@ public class Places {
     }
 
     public void setPopulation(int population) {
-        Population = population;
+        this.Population = population;
     }
 
     public String getPolitical_system() {
@@ -52,6 +52,6 @@ public class Places {
     }
 
     public void setPolitical_system(String political_system) {
-        Political_system = political_system;
+        this.Political_system = political_system;
     }
 }
