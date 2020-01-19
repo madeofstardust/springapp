@@ -35,7 +35,7 @@ public class DatabaseLoader implements CommandLineRunner {
 
 	@Override
 	public void run(String... strings) throws Exception {
-		this.repository.save(new All_stories("Kolor Magii"));
+		this.repository.save(new All_stories());
 	}
 }
 // end::code[]

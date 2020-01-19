@@ -1,5 +1,6 @@
 package com.greglturnquist.payroll;
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,10 +16,10 @@ public class All_stories {
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Title_of_a_story")
-    private String Title_of_a_story;
-
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Novel.class)
+    @JoinColumn(name = "Title_of_a_story", referencedColumnName="Title")
+    private List<Novel> Title_of_a_story;
+/*
     public All_stories(String Title_of_a_story){
         this.Title_of_a_story = Title_of_a_story;
     }
@@ -30,5 +31,6 @@ public class All_stories {
     public void setTitle_of_a_story(String title_of_a_story) {
         Title_of_a_story = title_of_a_story;
     }
+    */
 
 }

@@ -1,5 +1,6 @@
 package com.greglturnquist.payroll;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Side_Series", uniqueConstraints = {
@@ -13,13 +14,14 @@ public class Side_Series {
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Title_of_a_series")
-    private String Title_of_a_series;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Novel.class)
+    @JoinColumn(name = "Title_of_a_series", referencedColumnName ="")
+    private List<Novel>Side_Series;
+    //private String Title_of_a_series;
 
     @Column(name = "Real_world_or_not")
     private String Real_world_or_not;
-
+/*
     public String getTitle_of_a_series() {
         return Title_of_a_series;
     }
@@ -27,7 +29,7 @@ public class Side_Series {
     public void setTitle_of_a_series(String title_of_a_series) {
         this.Title_of_a_series = title_of_a_series;
     }
-
+*/
     public String getReal_world_or_not() {
         return Real_world_or_not;
     }

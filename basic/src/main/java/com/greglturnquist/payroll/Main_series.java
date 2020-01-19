@@ -1,5 +1,8 @@
 package com.greglturnquist.payroll;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Main_series", uniqueConstraints = {
@@ -15,9 +18,10 @@ public class Main_series {
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Title_of_a_series")
-    private String Title_of_a_series;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Novel.class)
+    @JoinColumn(name = "Title_of_a_series", referencedColumnName = "Main_series")
+    private List<Novel> Main_series;
+    //private String Title_of_a_series;
 
     @Column(name = "Magical_or_not")
     private String Magical_or_not;

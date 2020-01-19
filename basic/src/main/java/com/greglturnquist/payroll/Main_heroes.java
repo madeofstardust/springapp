@@ -3,11 +3,12 @@ package com.greglturnquist.payroll;
 import org.springframework.data.annotation.Reference;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "Main_heroes", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ID", "Name", "Sex", "Race", "Quote"}
+        @UniqueConstraint(columnNames = {"ID", "Main_hero", "Sex", "Race", "Quote"}
         )
 }
 )
@@ -18,12 +19,10 @@ public class Main_heroes {
     @Column(name = "ID")
     private int ID;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "Main_hero")
-    //private Novel novel;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Name")
-    private String Name;
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Novel.class)
+    @JoinColumn(name = "Main_hero", referencedColumnName = "Main_hero")
+    private List<Novel> Main_hero;
+    // private String Name;
 
     @Column(name = "Sex")
     private String Sex;

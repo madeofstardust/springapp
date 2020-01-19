@@ -1,9 +1,10 @@
 package com.greglturnquist.payroll;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Side_heroes", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ID", "Name", "Sex", "Race"}
+        @UniqueConstraint(columnNames = {"ID", "Name_of_sc", "Sex", "Race"}
         )
 }
 )
@@ -14,9 +15,10 @@ public class Side_heroes {
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Name_of_sc")
-    private String Name_of_sc;
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Novel.class)
+    @JoinColumn(name = "Name_of_sc", referencedColumnName = "Side_hero")
+    private List<Novel>Side_hero;
+    //private String Name_of_sc;
 
     @Column(name = "Sex")
     private String Sex;
@@ -24,7 +26,7 @@ public class Side_heroes {
     @Column(name = "Race")
     private String Race;
 
-
+/*
     public String getName() {
         return Name_of_sc;
     }
@@ -32,7 +34,7 @@ public class Side_heroes {
     public void setName(String name) {
         Name_of_sc = name;
     }
-
+*/
     public String getSex() {
         return Sex;
     }

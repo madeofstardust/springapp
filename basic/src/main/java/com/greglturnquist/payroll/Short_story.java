@@ -24,7 +24,7 @@ public class Short_story {
 
     @Column(name = "Main_hero")
     @Reference()
-    private List<Main_heroes> Name;
+    private String Main_hero;
 
     public String getTitle_of_a_short_story() {
         return Title_of_a_short_story;
@@ -42,11 +42,13 @@ public class Short_story {
         Year = year;
     }
 
-    public List<Main_heroes> getName() {
+    /*public List<Main_heroes> getName() {
         return Name;
     }
 
     public void setName(List<Main_heroes> name) {
         Name = name;
     }
+
+     */
 }

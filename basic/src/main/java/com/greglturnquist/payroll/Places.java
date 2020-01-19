@@ -1,5 +1,6 @@
 package com.greglturnquist.payroll;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Places", uniqueConstraints = {
@@ -14,9 +15,10 @@ public class Places {
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Name")
-    private String Name;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Novel.class)
+    @JoinColumn(name = "Name", referencedColumnName = "Place")
+    private List<Novel>Place;
+    //private String Name;
 
     @Column(name = "Climate")
     private String Climate;
@@ -27,6 +29,7 @@ public class Places {
     @Column(name = "Political_system")
     private String Political_system;
 
+    /*
     public String getName() {
         return Name;
     }
@@ -34,7 +37,7 @@ public class Places {
     public void setName(String name) {
         this.Name = name;
     }
-
+*/
     public String getClimate() {
         return Climate;
     }

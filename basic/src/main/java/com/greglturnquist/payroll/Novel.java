@@ -26,26 +26,31 @@ public class Novel {
 
     @Column(name = "Main_series")
     @Reference()
-    private List<Main_series> Title_of_a_main_series;
+    private String Main_series;
+    //private List<Main_series> Title_of_a_main_series;
 
     @Column(name = "Side_series")
     @Reference()
-    private List<Side_Series> Title_of_a_side_series ;
+    private String Side_Series;
+    //private List<Side_Series> Title_of_a_side_series ;
 
     @Column(name = "Main_hero")
     @Reference()
-    private List<Main_heroes> Name;
+    private String Main_hero;
+    //private List<Main_heroes> Name;
 
     @Column(name = "Side_hero")
     @Reference()
-    private List<Side_heroes> Side_hero;
+    private String Side_hero;
+    //private List<Side_heroes> Side_hero;
 
     @Column(name = "Satire")
     private String Satire;
 
     @Column(name = "Place")
     @Reference()
-    private List<Places> Place;
+    private String Place;
+    //private List<Places> Place;
 
     public Novel() {}
 
@@ -65,7 +70,7 @@ public class Novel {
 
   //  public void setYear_of_publishing(this.Year_of_publishing = Year_of_publishing;
    // }
-
+/*
     public List<Main_series> getTitle_of_a_main_series() {
         return Title_of_a_main_series;
     }
@@ -73,7 +78,7 @@ public class Novel {
     public void setTitle_of_a_main_series(List<Main_series> title_of_a_main_series) {
         Title_of_a_main_series = title_of_a_main_series;
     }
-
+*/
 
     //side series:
     //public void setSide_series (Side_Series side_series){
@@ -93,7 +98,7 @@ public class Novel {
     //        this.Main_hero = Main_hero;
     //    }
 
-
+/*
     public List<Main_heroes> getName() {
         return Name;
     }
@@ -101,11 +106,11 @@ public class Novel {
     public void setName(List<Main_heroes> name) {
         Name = name;
     }
-
+*/
     //Side hero:
-    public List<Side_heroes> getSide_hero() {
-        return Side_hero;
-    }
+    //public List<Side_heroes> getSide_hero() {
+    //    return Side_hero;
+    //}
 
     public void setSide_hero (Side_heroes side_hero){
             this.Side_hero = Side_hero;
@@ -118,7 +123,7 @@ public class Novel {
         public void setSatire (String satire){
             Satire = satire;
         }
-
+/*
     public List<Places> getPlace() {
         return Place;
     }
@@ -126,5 +131,7 @@ public class Novel {
     public void setPlace(List<Places> place) {
         Place = place;
     }
+*/
 }
+
 
