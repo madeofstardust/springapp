@@ -39,8 +39,10 @@ public class Novel {
     private String Main_hero;
     //private List<Main_heroes> Name;
 
-    @Column(name = "Side_hero")
-    @Reference()
+    //@JoinColumn(name = "Side_hero", referencedColumnName = "Name")
+    //@Reference()
+    @ManyToOne(targetEntity= Side_heroes.class)
+    @JoinColumn(name = "Side_hero")
     private String Side_hero;
     //private List<Side_heroes> Side_hero;
 

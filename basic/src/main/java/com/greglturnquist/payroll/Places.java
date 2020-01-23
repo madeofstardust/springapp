@@ -4,7 +4,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Places", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ID", "Name", "Climate", "Population", "Political_system"}
+        @UniqueConstraint(columnNames = {"ID", "PName", "Climate", "Population", "Political_system"}
         )
 }
 )
@@ -16,7 +16,7 @@ public class Places {
     private int ID;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Novel.class)
-    @JoinColumn(name = "Name", referencedColumnName = "Place")
+    @JoinColumn(name = "PName", referencedColumnName = "Place")
     private List<Novel>Place;
     //private String Name;
 

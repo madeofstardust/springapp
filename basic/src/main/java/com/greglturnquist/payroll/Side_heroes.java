@@ -4,7 +4,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Side_heroes", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ID", "Name_of_sc", "Sex", "Race"}
+        @UniqueConstraint(columnNames = {"ID", "SHName", "Sex", "Race"}
         )
 }
 )
@@ -16,7 +16,8 @@ public class Side_heroes {
     private int ID;
 
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Novel.class)
-    @JoinColumn(name = "Name_of_sc", referencedColumnName = "Side_hero")
+    @Column(name = "SHName")
+    //@Column(name = "SHName")
     private List<Novel>Side_hero;
     //private String Name_of_sc;
 
