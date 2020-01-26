@@ -3,23 +3,19 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Side_heroes", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ID", "SHName", "Sex", "Race"}
-        )
-}
+@Table(name = "Side_heroes"
 )
 public class Side_heroes {
 
-    @Id
-    @GeneratedValue
     @Column(name = "ID")
     private int ID;
 
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = Novel.class)
-    @Column(name = "SHName")
-    //@Column(name = "SHName")
-    private List<Novel>Side_hero;
-    //private String Name_of_sc;
+    @Id
+    @Column(name = "SHname")
+    private String shname;
+
+    @OneToMany(mappedBy = "side_hero")
+    private List<Novel> novels;
 
     @Column(name = "Sex")
     private String Sex;
@@ -27,15 +23,22 @@ public class Side_heroes {
     @Column(name = "Race")
     private String Race;
 
-/*
-    public String getName() {
-        return Name_of_sc;
+    public String getShname() {
+        return shname;
     }
 
-    public void setName(String name) {
-        Name_of_sc = name;
+    public void setShname(String shname) {
+        this.shname = shname;
     }
-*/
+
+    public List<Novel> getNovels() {
+        return novels;
+    }
+
+    public void setNovels(List<Novel> novels) {
+        this.novels = novels;
+    }
+
     public String getSex() {
         return Sex;
     }

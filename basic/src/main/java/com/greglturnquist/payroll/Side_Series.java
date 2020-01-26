@@ -3,33 +3,23 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Side_Series", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ID", "Title_of_a_series", "Real_world_or_not"}
-        )
-}
+@Table(name = "Side_Series"
 )
 public class Side_Series {
-    @Id
-    @GeneratedValue
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Novel.class)
-    @JoinColumn(name = "Title_of_a_series", referencedColumnName ="")
-    private List<Novel>Side_Series;
-    //private String Title_of_a_series;
+    @Id
+    @Column(name="Title_of_a_side_series")
+    private String title_of_a_side_series;
+
+    @OneToMany(mappedBy = "side_series")
+    private List<Novel> novels;
 
     @Column(name = "Real_world_or_not")
     private String Real_world_or_not;
-/*
-    public String getTitle_of_a_series() {
-        return Title_of_a_series;
-    }
 
-    public void setTitle_of_a_series(String title_of_a_series) {
-        this.Title_of_a_series = title_of_a_series;
-    }
-*/
+
     public String getReal_world_or_not() {
         return Real_world_or_not;
     }

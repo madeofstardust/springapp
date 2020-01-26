@@ -4,136 +4,110 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Reference;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "Novel", uniqueConstraints = {
-        @UniqueConstraint( columnNames = {"Title", "Main_hero", "Side_hero","Main_series","Side_series","Place", "Satire"}
-                )
-            }
-        )
-
+@Table(name = "Novel")
 public class Novel {
 
     @Id
     @GeneratedValue
-    @Column(name = "Title")
-    @Reference()
-    private List<All_stories> Title_of_a_story;
+    @Column(name = "ID")
+    private int ID;
 
-    //@Column(name = "Year")
-    //Year_of_publishing Year_of_publishing;
+    @ManyToOne
+    @JoinColumn(name = "Title", referencedColumnName = "Title_of_a_story")
+    private All_stories all_story;
 
-    @Column(name = "Main_series")
-    @Reference()
-    private String Main_series;
-    //private List<Main_series> Title_of_a_main_series;
+    @ManyToOne
+    @JoinColumn(name = "Main_series", referencedColumnName = "Title_of_a_series")
+    private Main_series main_series;
 
-    @Column(name = "Side_series")
-    @Reference()
-    private String Side_Series;
-    //private List<Side_Series> Title_of_a_side_series ;
+    @ManyToOne
+    @JoinColumn(name = "Side_series", referencedColumnName = "Title_of_a_side_series")
+    private Side_Series side_series;
 
-    @Column(name = "Main_hero")
-    @Reference()
-    private String Main_hero;
-    //private List<Main_heroes> Name;
+    @ManyToOne
+    @JoinColumn(name = "Main_hero", referencedColumnName = "name")
+    private Main_heroes main_hero;
 
-    //@JoinColumn(name = "Side_hero", referencedColumnName = "Name")
-    //@Reference()
-    @ManyToOne(targetEntity= Side_heroes.class)
-    @JoinColumn(name = "Side_hero")
-    private String Side_hero;
-    //private List<Side_heroes> Side_hero;
+    @ManyToOne
+    @JoinColumn(name = "Side_hero", referencedColumnName = "SHname")
+    private Side_heroes side_hero;
+
+    @ManyToOne
+    @JoinColumn(name = "Place", referencedColumnName = "Pname")
+    private Places place;
 
     @Column(name = "Satire")
     private String Satire;
 
-    @Column(name = "Place")
-    @Reference()
-    private String Place;
-    //private List<Places> Place;
 
     public Novel() {}
 
-    //Title of a story:
 
-    public List<All_stories> getTitle_of_a_story() {
-        return Title_of_a_story;
+    public int getID() {
+        return ID;
     }
 
-    public void setTitle_of_a_story (All_stories Title_of_a_story){
-        Title_of_a_story = Title_of_a_story;
-        }
-
-    //public Year_of_publishing getYear_of_publishing() {
-    //    return Year_of_publishing;
-    //}
-
-  //  public void setYear_of_publishing(this.Year_of_publishing = Year_of_publishing;
-   // }
-/*
-    public List<Main_series> getTitle_of_a_main_series() {
-        return Title_of_a_main_series;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public void setTitle_of_a_main_series(List<Main_series> title_of_a_main_series) {
-        Title_of_a_main_series = title_of_a_main_series;
-    }
-*/
-
-    //side series:
-    //public void setSide_series (Side_Series side_series){
-    //        this.Side_series = side_series;
-    //    }
-
-    //public Side_Series getSide_series () {
-    //    return Side_series;
-    //}
-
-    //Main heroes:
-    //public Main_heroes getMain_hero () {
-    //        return Main_hero;
-    //    }
-
-    //public void setMain_hero(Main_heroes Main_hero){
-    //        this.Main_hero = Main_hero;
-    //    }
-
-/*
-    public List<Main_heroes> getName() {
-        return Name;
+    public All_stories getAll_story() {
+        return all_story;
     }
 
-    public void setName(List<Main_heroes> name) {
-        Name = name;
-    }
-*/
-    //Side hero:
-    //public List<Side_heroes> getSide_hero() {
-    //    return Side_hero;
-    //}
-
-    public void setSide_hero (Side_heroes side_hero){
-            this.Side_hero = Side_hero;
-        }
-
-        public String getSatire () {
-            return Satire;
-        }
-
-        public void setSatire (String satire){
-            Satire = satire;
-        }
-/*
-    public List<Places> getPlace() {
-        return Place;
+    public void setAll_story(All_stories all_story) {
+        this.all_story = all_story;
     }
 
-    public void setPlace(List<Places> place) {
-        Place = place;
+    public Main_series getMain_series() {
+        return main_series;
     }
-*/
+
+    public void setMain_series(Main_series main_series) {
+        this.main_series = main_series;
+    }
+
+    public Side_Series getSide_series() {
+        return side_series;
+    }
+
+    public void setSide_series(Side_Series side_series) {
+        this.side_series = side_series;
+    }
+
+    public Main_heroes getMain_hero() {
+        return main_hero;
+    }
+
+    public void setMain_hero(Main_heroes main_hero) {
+        this.main_hero = main_hero;
+    }
+
+    public Side_heroes getSide_hero() {
+        return side_hero;
+    }
+
+    public void setSide_hero(Side_heroes side_hero) {
+        this.side_hero = side_hero;
+    }
+
+    public Places getPlace() {
+        return place;
+    }
+
+    public void setPlace(Places place) {
+        this.place = place;
+    }
+
+    public String getSatire() {
+        return Satire;
+    }
+
+    public void setSatire(String satire) {
+        Satire = satire;
+    }
 }
 
 

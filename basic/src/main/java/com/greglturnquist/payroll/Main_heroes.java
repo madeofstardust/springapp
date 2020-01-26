@@ -7,23 +7,20 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Main_heroes", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ID", "MHName", "Sex", "Race", "Quote"}
-        )
-}
+@Table(name = "Main_heroes"
 )
 
 public class Main_heroes {
-    @Id
-    @GeneratedValue
+
     @Column(name = "ID")
     private int ID;
 
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = Novel.class)
-    @Column(name = "MHName")
-    //@JoinColumn(name = "Name", referencedColumnName = "Main_hero")
-    private List<Novel> Main_hero;
-    // private String Name;
+    @Id
+    @Column(name = "name")
+    private String name;
+
+    @OneToMany(mappedBy = "main_hero")
+    private List<Novel> novels;
 
     @Column(name = "Sex")
     private String Sex;
@@ -35,13 +32,21 @@ public class Main_heroes {
     private String Quote;
 
 
-    //public String getName() {
-    //    return Name;
-    //}
+    public List<Novel> getNovels() {
+        return novels;
+    }
 
-    //public void setName(String Name) {
-    //    this.Name = Name;
-    //}
+    public void setNovels(List<Novel> novels) {
+        this.novels = novels;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String Name) {
+        this.name = Name;
+    }
 
     public String getSex() {
         return Sex;

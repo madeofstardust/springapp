@@ -3,22 +3,20 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Places", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ID", "PName", "Climate", "Population", "Political_system"}
-        )
-}
+@Table(name = "Places"
 )
 public class Places {
 
-    @Id
     @GeneratedValue
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Novel.class)
-    @JoinColumn(name = "PName", referencedColumnName = "Place")
-    private List<Novel>Place;
-    //private String Name;
+    @Id
+    @Column(name = "Pname")
+    private String place_name;
+
+    @OneToMany(mappedBy = "place")
+    private List<Novel> novels;
 
     @Column(name = "Climate")
     private String Climate;
@@ -29,21 +27,36 @@ public class Places {
     @Column(name = "Political_system")
     private String Political_system;
 
-    /*
-    public String getName() {
-        return Name;
+    public int getID() {
+        return ID;
     }
 
-    public void setName(String name) {
-        this.Name = name;
+    public void setID(int ID) {
+        this.ID = ID;
     }
-*/
+
+    public String getPlace_name() {
+        return place_name;
+    }
+
+    public void setPlace_name(String place_name) {
+        this.place_name = place_name;
+    }
+
+    public List<Novel> getNovels() {
+        return novels;
+    }
+
+    public void setNovels(List<Novel> novels) {
+        this.novels = novels;
+    }
+
     public String getClimate() {
         return Climate;
     }
 
     public void setClimate(String climate) {
-        this.Climate = climate;
+        Climate = climate;
     }
 
     public int getPopulation() {
@@ -51,7 +64,7 @@ public class Places {
     }
 
     public void setPopulation(int population) {
-        this.Population = population;
+        Population = population;
     }
 
     public String getPolitical_system() {
@@ -59,6 +72,6 @@ public class Places {
     }
 
     public void setPolitical_system(String political_system) {
-        this.Political_system = political_system;
+        Political_system = political_system;
     }
 }
